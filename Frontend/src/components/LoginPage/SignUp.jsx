@@ -1,14 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function SignUp() {
     const navigate = useNavigate()
 
-    const handleSignupClick = () => {
-        navigate("/signup")
+    const handleLoginClick = () => {
+        navigate("/login")
     }
-    const handleForgotPassword = () => {
-        navigate("/forgotPassword")
+    const handleSignupClick = () => {
+
+        navigate("/")
     }
     return (
         <div className="flex justify-center items-center h-screen bg-black">
@@ -26,31 +27,34 @@ function Login() {
                         placeholder="Email"
                         className="p-3 rounded-lg text-gray-900 focus:ring-1 focus:ring-green-400 focus:border-green-400 focus:outline-none"
                     />
-                    <div className="flex items-center justify-between">
-                        <p className="text-black font-medium text-base">Password</p>
-                        <button className="text-sm text-green-800 hover:underline" onClick={handleForgotPassword}>
-                            Forgot Password?
-                        </button>
-                    </div>
+                    <p className="text-black font-medium text-base">Password</p>
                     <input
                         type="password"
                         placeholder="Password"
                         className="p-3 rounded-lg text-gray-900 focus:ring-1 focus:ring-green-400 focus:border-green-400 focus:outline-none"
                     />
 
+                    <p className="text-black font-medium text-base">Confirm Password</p>
+                    <input
+                        type="password"
+                        placeholder="Enter Password again"
+                        className="p-3 rounded-lg text-gray-900 focus:ring-1 focus:ring-green-400 focus:border-green-400 focus:outline-none"
+                    />
+
                     <button
                         type="submit"
                         className="p-3 bg-green-600 hover:bg-green-700 rounded-lg font-bold text-white"
+                        onClick={handleSignupClick}
                     >
-                        Log In
+                        Sign Up
                     </button>
                 </form>
 
                 {/* Footer */}
                 <div className="text-center">
                     <p className="text-gray-500">
-                        Don't have an account?{' '}
-                        <button className="text-blue-700 hover:text-blue-900 underline" onClick={handleSignupClick}>Sign Up</button>
+                        Already have an account?{' '}
+                        <button className="text-blue-700 hover:text-blue-900 underline" onClick={handleLoginClick}>Login</button>
                     </p>
                 </div>
             </div>
@@ -58,4 +62,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default SignUp;
